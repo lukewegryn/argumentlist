@@ -35,9 +35,8 @@ QString ArgumentList::getSwitchArgContains(QString option, QString defaultValue)
    QMutableStringListIterator itr(*this);
    while (itr.hasNext()) {
       if (itr.next().contains(option)) {
-         //itr.remove();
          if (itr.hasNext()) {
-            QString retval = itr.next();
+            QString retval = itr.value();//itr.next();
             itr.remove();
             return retval;
           }
@@ -54,7 +53,7 @@ QString ArgumentList::getFlagContains(QString option, QString defaultValue)
    while (itr.hasNext()) {
       if (itr.next().contains(option)) {
             QString retval = itr.value();
-            itr.next();
+            //itr.next();
             itr.remove();
             return retval;
           }
